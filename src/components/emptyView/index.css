@@ -1,0 +1,21 @@
+.no_passwords_container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.no_passwords_img {
+  margin-top: 20px;
+  width: 320px;
+  height: 260px;
+}
+
+.tagline {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  padding: 4px;
+  margin-top: 16px;
+}

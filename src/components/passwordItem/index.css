@@ -1,0 +1,73 @@
+.color1 {
+  background-color: #7683cb;
+}
+.color2 {
+  background-color: #f59e0b;
+}
+.color3 {
+  background-color: #10b981;
+}
+.color4 {
+  background-color: #f97316;
+}
+.color5 {
+  background-color: #14b8a6;
+}
+.color6 {
+  background-color: #b91c1c;
+}
+
+.password_container {
+  width: 90%;
+  border: 1px solid #b6c3ca;
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+}
+@media screen and (min-width: 768px) {
+  .password_container {
+    width: 360px;
+  }
+}
+
+.password_details_container {
+  width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.initial {
+  font-family: 'Roboto';
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.username_details {
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.stars_image {
+  width: 50px;
+  height: 10px;
+  margin-top: 4px;
+}
+
+.delete {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 30px;
+  padding: 5px;
+  margin-right: 8px;
+}
+
+.deleteIcon {
+  width: 20px;
+  height: 20px;
+}
