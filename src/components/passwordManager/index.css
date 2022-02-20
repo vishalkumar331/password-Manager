@@ -214,6 +214,13 @@
   margin-right: 3px;
 }
 
+.footer {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: black;
+  text-align: right;
+}
+
 .show_passwords_container {
   display: flex;
   justify-content: center;
@@ -227,6 +234,7 @@
   height: 20px;
   margin-right: 6px;
   padding: 8px;
+  cursor: pointer;
 }
 
 .label {
@@ -237,9 +245,9 @@
 }
 
 .passwordsList {
-  width: 96%;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 }

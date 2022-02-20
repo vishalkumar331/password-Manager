@@ -1,41 +1,64 @@
-.color1 {
+.color0 {
   background-color: #7683cb;
 }
-.color2 {
+.color1 {
   background-color: #f59e0b;
 }
-.color3 {
+.color2 {
   background-color: #10b981;
 }
-.color4 {
+.color3 {
   background-color: #f97316;
 }
-.color5 {
+.color4 {
   background-color: #14b8a6;
 }
-.color6 {
+.color5 {
   background-color: #b91c1c;
 }
 
 .password_container {
-  width: 90%;
+  width: 98%;
+  height: 140px;
   border: 1px solid #b6c3ca;
+  border-radius: 6px;
   list-style-type: none;
   display: flex;
   justify-content: center;
-  align-items: space-around;
+  align-items: center;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  flex-wrap: wrap;
 }
 @media screen and (min-width: 768px) {
   .password_container {
-    width: 360px;
+    width: 300px;
   }
 }
 
 .password_details_container {
   width: 180px;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.initial_container {
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
+  margin-right: 6px;
 }
 
 .initial {
@@ -49,22 +72,28 @@
   font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 4px;
+  margin: 4px;
 }
 
 .stars_image {
-  width: 50px;
-  height: 10px;
+  width: 100px;
+  height: 30px;
   margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 0;
 }
 
 .delete {
+  width: 30px;
   border: none;
   outline: none;
+  cursor: pointer;
   background-color: transparent;
-  width: 30px;
-  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 8px;
+  padding: 5px;
 }
 
 .deleteIcon {

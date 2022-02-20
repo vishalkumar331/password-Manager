@@ -25,12 +25,22 @@ class PasswordManager extends Component {
       password: newPassword,
     }
 
-    this.setState(prevState => ({
-      passwordsList: [...prevState.passwordsList, newPasswordDetails],
-      newWebsite: '',
-      newUsername: '',
-      newPassword: '',
-    }))
+    if (newWebsite !== '' && newUsername !== '' && newPassword !== '') {
+      this.setState(prevState => ({
+        passwordsList: [...prevState.passwordsList, newPasswordDetails],
+        newWebsite: '',
+        newUsername: '',
+        newPassword: '',
+      }))
+    }
+  }
+
+  onToggleCheckbox = event => {
+    this.setState({showPasswords: event.target.checked})
+  }
+
+  onChangeSearch = event => {
+    this.setState({searchInput: event.target.value})
   }
 
   onChangeWebsite = event => {
@@ -51,21 +61,35 @@ class PasswordManager extends Component {
     this.setState({passwordsList: updatedList})
   }
 
-  render() {
-    const {
-      searchInput,
-      showPasswords,
-      passwordsList,
-      newWebsite,
-      newUsername,
-      newPassword,
-    } = this.state
-    const count = passwordsList.length
+  renderFilteredList = () => {
+    const {passwordsList, searchInput} = this.state
 
     const filteredList = passwordsList.filter(eachItem =>
       eachItem.website.toLowerCase().includes(searchInput.toLowerCase()),
     )
-    console.log(filteredList)
+    return filteredList
+  }
+
+  renderPasswordsList = () => {
+    const {showPasswords} = this.state
+    const filteredList = this.renderFilteredList()
+
+    return filteredList.map(each => (
+      <PasswordItem
+        passwordDetails={each}
+        toShowPasswords={showPasswords}
+        onDelete={this.onDeletePassword}
+        key={each.id}
+      />
+    ))
+  }
+
+  render() {
+    const {newWebsite, newUsername, newPassword} = this.state
+    const filteredList = this.renderFilteredList()
+    const count = filteredList.length
+
+    this.renderPasswordsList()
 
     return (
       <div className="bg_container">
@@ -153,30 +177,31 @@ class PasswordManager extends Component {
                 alt="search"
                 className="input_image"
               />
-              <input type="search" className="searchBox" />
+              <input
+                type="search"
+                className="searchBox"
+                onChange={this.onChangeSearch}
+              />
             </div>
           </div>
           <hr className="line" />
           <div className="show_passwords_container">
-            <input type="checkbox" className="check_box" id="showPasswords" />
+            <input
+              type="checkbox"
+              className="check_box"
+              id="showPasswords"
+              onChange={this.onToggleCheckbox}
+            />
             <label htmlFor="showPasswords" className="label">
               Show Passwords
             </label>
           </div>
           {count === 0 && <EmptyView />}
           {count > 0 && (
-            <ul className="passwordsList">
-              {filteredList.map(eachPassword => (
-                <PasswordItem
-                  passwordDetails={eachPassword}
-                  toShowPasswords={showPasswords}
-                  onDelete={this.onDeletePassword}
-                  key={eachPassword.id}
-                />
-              ))}
-            </ul>
+            <ul className="passwordsList">{this.renderPasswordsList()}</ul>
           )}
         </div>
+        <p className="footer">by Vishal</p>
       </div>
     )
   }
